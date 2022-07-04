@@ -1,0 +1,54 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.1'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'zeno'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+compileJava.options.encoding = 'UTF-8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.jetbrains:annotations:23.0.0'
+
+	// Spring Boot Starter
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Lombok
+	implementation 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// DB MySQL
+	runtimeOnly 'mysql:mysql-connector-java'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	compileOnly 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// WEB
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// Security, Authentication
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	compileOnly group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+	compileOnly 'io.jsonwebtoken:jjwt:0.9.1'
+
+	implementation 'org.springframework.boot:spring-boot-starter'
+	compileOnly 'org.springframework.boot:spring-boot-starter-web'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

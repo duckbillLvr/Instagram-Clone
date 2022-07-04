@@ -1,0 +1,35 @@
+GET localhost:8080/users/feed/3
+
+
+### 로그인 API
+POST localhost:8080/auth/logIn
+Content-Type: application/json
+
+{
+  "email": "RatKing@gmail.com",
+  "password": "RatKing11!"
+}
+
+### 회원가입 API
+POST localhost:8080/users
+Content-Type: application/json
+
+{
+  "name": "김도현",
+  "nickName": "RatKing",
+  "email": "RatKing@gmail.com",
+  "password": "RatKing11!",
+  "phone": "010-3415-2282",
+  "introduce": "쥐들의 왕 왕중의 쥐"
+}
+
+### 게시물 작성 API
+POST localhost:8080/posts
+X-ACCESS-TOKEN: eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxNCwiaWF0IjoxNjU2OTMzNjgyLCJleHAiOjE2NTg0MDQ5MTF9.alzyFluJUAr7rimYTmu7jBhDmHmsythRrMX9o1DrIww
+Content-Type: application/json
+
+{
+  "userIdx": 14,
+  "content": "쥐들은 나를 보거라",
+  "postImgsUrl": ["ratImg1.jpg", "ratImg2.jpg"]
+}
